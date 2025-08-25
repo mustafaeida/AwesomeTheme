@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لا توجد بيانات</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+</head>
+<body class="min-h-[100dvh] p-4 bg-background text-foreground">
+
+<!-- يمكن استخدام هذا المكون داخل أي صفحة أخرى -->
+<div class="flex items-center justify-center min-h-[400px]">
+    <div class="bg-card text-card-foreground rounded-lg border border-border shadow-sm p-12 max-w-md w-full text-center">
+
+        <!-- أيقونة متغيرة حسب السياق -->
+        <div class="mb-6">
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-muted rounded-full">
+                    <i class="bi bi-inbox text-3xl text-muted-foreground"></i>
+            </div>
+        </div>
+
+        <!-- العنوان -->
+        <h3 class="text-xl font-semibold mb-3">
+            لا توجد بيانات
+        </h3>
+
+        <!-- النص التوضيحي -->
+        <p class="text-muted-foreground mb-6 leading-relaxed">
+                لم يتم العثور على أي عناصر. جرب إضافة عناصر جديدة أو تعديل معايير البحث.
+        </p>
+
+        <!-- زر الإجراء -->
+            <button type="button" class="kt-btn kt-btn-primary">
+                <i class="bi bi-plus-circle me-2"></i>
+                إضافة جديد
+            </button>
+        <!-- أزرار إضافية -->
+            <div class="mt-4 space-y-2">
+                <button type="button" class="kt-btn kt-btn-outline w-full">
+                    <i class="bi bi-arrow-clockwise me-2"></i>
+                    إعادة تحميل
+                </button>
+
+                <button type="button" class="kt-btn kt-btn-ghost w-full">
+                    <i class="bi bi-funnel me-2"></i>
+                    مسح الفلاتر
+                </button>
+            </div>
+    </div>
+</div>
+
+<!-- مثال على استخدام المكون في سياقات مختلفة -->
+
+<!-- حالة البحث الفارغ -->
+<div class="hidden" id="search-empty">
+    <div class="bg-card text-card-foreground rounded-lg border border-border p-8 text-center">
+        <div class="mb-4">
+            <i class="bi bi-search text-4xl text-muted-foreground"></i>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">لا توجد نتائج</h3>
+        <p class="text-muted-foreground mb-4">
+            لم يتم العثور على نتائج مطابقة لبحثك ""
+        </p>
+        <button type="button" class="kt-btn kt-btn-outline">
+            <i class="bi bi-arrow-clockwise me-2"></i>
+            مسح البحث
+        </button>
+    </div>
+</div>
+
+<!-- حالة الجدول الفارغ -->
+<div class="hidden" id="table-empty">
+    <div class="bg-card text-card-foreground rounded-lg border border-border p-8 text-center">
+        <div class="mb-4">
+            <i class="bi bi-table text-4xl text-muted-foreground"></i>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">الجدول فارغ</h3>
+        <p class="text-muted-foreground mb-4">
+            لا توجد سجلات في هذا الجدول حتى الآن
+        </p>
+        <button type="button" class="kt-btn kt-btn-primary">
+            <i class="bi bi-plus-circle me-2"></i>
+            إضافة سجل جديد
+        </button>
+    </div>
+</div>
+
+<!-- حالة الإشعارات الفارغة -->
+<div class="hidden" id="notifications-empty">
+    <div class="bg-card text-card-foreground rounded-lg border border-border p-8 text-center">
+        <div class="mb-4">
+            <i class="bi bi-bell text-4xl text-muted-foreground"></i>
+        </div>
+        <h3 class="text-lg font-semibold mb-2">لا توجد إشعارات</h3>
+        <p class="text-muted-foreground">
+            ستظهر إشعاراتك الجديدة هنا
+        </p>
+    </div>
+</div>
+
+<script src="../js/ktui.min.js"></script>
+</body>
+</html>

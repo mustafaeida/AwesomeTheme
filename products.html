@@ -1,0 +1,748 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+  <link href="./styles.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+</head>
+<body class="bg-background text-foreground" dir="rtl">
+  <nav class="border-b border-border bg-card sticky top-0 z-50">
+      <div class="px-4 lg:px-6">
+          <div class="flex h-16 items-center justify-between">
+              <!-- Logo and Mobile Menu -->
+              <div class="flex items-center gap-4">
+                  <button
+                          class="kt-btn kt-btn-ghost lg:hidden"
+                          data-kt-toggle="#sidebar"
+                          data-kt-toggle-class="translate-x-full"
+                  >
+                      <i class="bi bi-list text-xl"></i>
+                  </button>
+                  <div class="flex justify-start w-64 gap gap-2">
+                      <div class="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+                          <!--                                            <i class="bi bi-lightning-charge-fill text-primary-foreground"></i>-->
+                          <img src="assets/images/icon.png" alt="" class="w-40">
+                      </div>
+                      <!--                    <img src="assets/images/icon.png" alt="" class="w-40">-->
+                      <h1 class="text-xl font-bold text-foreground hidden sm:block"></h1>
+                  </div>
+              </div>
+  
+              <!-- Search Bar -->
+              <div class="hidden md:flex flex-1 max-w-md mx-8">
+                  <div class="relative w-full">
+                      <i class="bi bi-search absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground"></i>
+                      <input
+                              type="text"
+                              placeholder="البحث..."
+                              class="w-full h-9 pl-4 pr-10 bg-background border border-input rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+                      />
+                  </div>
+              </div>
+  
+              <!-- Right Actions -->
+              <div class="flex items-center gap-2">
+                  <!-- Theme Toggle -->
+                  <button class="kt-btn kt-btn-ghost kt-btn-sm" data-kt-theme-mode="light">
+                      <i class="bi bi-sun-fill text-lg"></i>
+                  </button>
+                  <button class="kt-btn kt-btn-ghost kt-btn-sm hidden" data-kt-theme-mode="dark">
+                      <i class="bi bi-moon-fill text-lg"></i>
+                  </button>
+  
+                  <!-- Profile Menu -->
+                  <div class="relative">
+                      <button
+                              class="flex items-center gap-2 p-1 rounded-md hover:bg-accent"
+                              data-kt-toggle="#profile-dropdown"
+                              data-kt-toggle-class="hidden"
+                      >
+  
+                          <link rel="preload" as="image" href="https://api.dicebear.com/7.x/bottts/svg?seed=Mohammed"/>
+                          <div class="flex gap-4 flex-wrap">
+                              <div class="kt-avatar size-14">
+                                  <div class="kt-avatar-image">
+                                      <img src="https://api.dicebear.com/7.x/bottts/svg?seed=Mohammed" alt="avatar"/>
+                                  </div>
+                                  <div class="kt-avatar-indicator -end-1 -top-1">
+                                      <svg viewBox="0 0 15 16" class="h-4 fill-primary">
+                                          <path
+                                                  d="M14.5425 6.8973L13.5 5.8398C13.4273 5.76858 13.3699 5.68331 13.3312 5.58919C13.2925 5.49507 13.2734 5.39405 13.275 5.2923V3.7923C13.274 3.58681 13.2324 3.38353 13.1527 3.19414C13.0729 3.00476 12.9565 2.833 12.8101 2.68874C12.6638 2.54448 12.4904 2.43055 12.2998 2.35351C12.1093 2.27647 11.9055 2.23783 11.7 2.2398H10.2C10.0982 2.24141 9.99722 2.22228 9.9031 2.1836C9.80898 2.14492 9.72371 2.08749 9.65249 2.0148L8.60249 0.957304C8.30998 0.665106 7.91344 0.500977 7.49999 0.500977C7.08654 0.500977 6.68999 0.665106 6.39749 0.957304L5.33999 1.9998C5.26876 2.07249 5.1835 2.12992 5.08937 2.1686C4.99525 2.20728 4.89424 2.22641 4.79249 2.2248H3.29249C3.08699 2.22578 2.88371 2.26735 2.69432 2.34713C2.50494 2.4269 2.33318 2.54331 2.18892 2.68966C2.04466 2.83602 1.93073 3.00943 1.85369 3.19994C1.77665 3.39046 1.73801 3.59431 1.73999 3.7998V5.2998C1.74159 5.40155 1.72247 5.50256 1.68378 5.59669C1.6451 5.69081 1.58767 5.77608 1.51499 5.8473L0.457487 6.8973C0.165289 7.18981 0.00115967 7.58635 0.00115967 7.9998C0.00115967 8.41325 0.165289 8.80979 0.457487 9.1023L1.49999 10.1598C1.57267 10.231 1.6301 10.3163 1.66878 10.4104C1.70747 10.5045 1.72659 10.6056 1.72499 10.7073V12.2073C1.72597 12.4128 1.76754 12.6161 1.84731 12.8055C1.92709 12.9949 2.04349 13.1666 2.18985 13.3109C2.3362 13.4551 2.50961 13.5691 2.70013 13.6461C2.89064 13.7231 3.0945 13.7618 3.29999 13.7598H4.79999C4.90174 13.7582 5.00275 13.7773 5.09687 13.816C5.191 13.8547 5.27627 13.9121 5.34749 13.9848L6.40499 15.0423C6.69749 15.3345 7.09404 15.4986 7.50749 15.4986C7.92094 15.4986 8.31748 15.3345 8.60999 15.0423L9.65999 13.9998C9.73121 13.9271 9.81647 13.8697 9.9106 13.831C10.0047 13.7923 10.1057 13.7732 10.2075 13.7748H11.7075C12.1212 13.7748 12.518 13.6104 12.8106 13.3179C13.1031 13.0253 13.2675 12.6285 13.2675 12.2148V10.7148C13.2659 10.6131 13.285 10.512 13.3237 10.4179C13.3624 10.3238 13.4198 10.2385 13.4925 10.1673L14.55 9.1098C14.6953 8.96434 14.8104 8.79157 14.8887 8.60146C14.9671 8.41134 15.007 8.20761 15.0063 8.00199C15.0056 7.79638 14.9643 7.59293 14.8847 7.40334C14.8051 7.21376 14.6888 7.04178 14.5425 6.8973ZM10.635 6.6498L6.95249 10.2498C6.90055 10.3024 6.83864 10.3441 6.77038 10.3724C6.70212 10.4007 6.62889 10.4152 6.55499 10.4148C6.48062 10.4138 6.40719 10.398 6.33896 10.3684C6.27073 10.3388 6.20905 10.2959 6.15749 10.2423L4.37999 8.4423C4.32532 8.39026 4.28169 8.32775 4.25169 8.25849C4.22169 8.18923 4.20593 8.11464 4.20536 8.03916C4.20479 7.96369 4.21941 7.88887 4.24836 7.81916C4.27731 7.74946 4.31999 7.68629 4.37387 7.63342C4.42774 7.58056 4.4917 7.53908 4.56194 7.51145C4.63218 7.48382 4.70726 7.47061 4.78271 7.4726C4.85816 7.4746 4.93244 7.49176 5.00112 7.52306C5.0698 7.55436 5.13148 7.59917 5.18249 7.6548L6.56249 9.0573L9.84749 5.8473C9.95296 5.74197 10.0959 5.6828 10.245 5.6828C10.394 5.6828 10.537 5.74197 10.6425 5.8473C10.6953 5.90016 10.737 5.963 10.7653 6.03216C10.7935 6.10132 10.8077 6.17542 10.807 6.25013C10.8063 6.32483 10.7908 6.39865 10.7612 6.46728C10.7317 6.5359 10.6888 6.59795 10.635 6.6498Z"
+                                          ></path>
+                                      </svg>
+                                  </div>
+                              </div>
+                          </div>
+                          <span class="text-sm font-medium hidden sm:block"></span>
+                          <i class="bi bi-chevron-down text-xs"></i>
+                      </button>
+  
+                      <!-- Profile Dropdown -->
+                      <div id="profile-dropdown"
+                           class="hidden absolute left-0 mt-2 w-48 bg-card border border-border rounded-md shadow-lg z-50">
+                          <div class="py-1">
+                              <a href="/profile.html" class="block px-4 py-2 text-sm hover:bg-accent">الملف الشخصي</a>
+                              <a href="/settings.html" class="block px-4 py-2 text-sm hover:bg-accent">الإعدادات</a>
+                              <div class="border-t border-border my-1"></div>
+                              <a href="/logout.html" class="block px-4 py-2 text-sm text-destructive hover:bg-accent">تسجيل
+                                  الخروج</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </nav>
+<div class="flex ">
+
+    <aside
+            id="sidebar"
+            class="
+        fixed inset-y-16 right-0   /* موبايل: خارج التدفق ويغطي من أعلى شريط الـ nav (16) */
+        w-64 bg-card border-l border-border
+        transform transition-transform duration-300
+        translate-x-full           /* موبايل: مخفي افتراضيًا خارج الشاشة */
+        z-40
+    
+        lg:static lg:sticky lg:top-16  /* ديسكتوب: يرجع داخل التدفق ويلتصق */
+        lg:translate-x-0 lg:inset-auto /* يلغي خصائص الـ fixed */
+      "
+    >
+        <nav class="p-4 space-y-2">
+            <div class="mb-6">
+                <h2 class="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3">القائمة الرئيسية</h2>
+                <ul class="space-y-1">
+                    <!-- الرئيسية -->
+                    <li>
+                        <a href="/index.html" class="flex items-center gap-3 px-3 py-2 text-sm font-medium  hover:bg-accent hover:text-accent-foreground rounded-md">
+                            <i class="bi bi-house"></i>
+                            الرئيسية
+                        </a>
+                    </li>
+    
+                    <!-- لوحة التحكم -->
+                    <li>
+                        <a href="/dashboard.html" class="flex items-center gap-3 px-3 py-2 text-sm font-medium  hover:bg-accent hover:text-accent-foreground rounded-md">
+                            <i class="bi bi-speedometer2"></i>
+                            لوحة التحكم
+                        </a>
+                    </li>
+    
+                    <!-- التحليلات -->
+                    <li>
+                        <button
+                                class="w-full flex items-center justify-between px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-md"
+                                data-kt-toggle="#analytics-menu"
+                                data-kt-toggle-class="hidden"
+                        >
+                            <div class="flex items-center gap-3">
+                                <i class="bi bi-graph-up"></i>
+                                التحليلات
+                            </div>
+                            <i class="bi bi-chevron-down text-xs transition-transform" data-kt-toggle-target="#analytics-menu"></i>
+                        </button>
+                        <ul id="analytics-menu" class="hidden mt-1 mr-6 space-y-1">
+                            <li><a href="#" class="block px-3 py-2 text-sm hover:bg-accent rounded-md">المبيعات</a></li>
+                            <li><a href="#" class="block px-3 py-2 text-sm hover:bg-accent rounded-md">الزوار</a></li>
+                            <li><a href="#" class="block px-3 py-2 text-sm hover:bg-accent rounded-md">التحويلات</a></li>
+                        </ul>
+                    </li>
+    
+                    <!-- إدارة المستخدمين -->
+                    <li>
+                        <button
+                                class="w-full flex items-center justify-between px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-md"
+                                data-kt-toggle="#users-menu"
+                                data-kt-toggle-class="hidden"
+                        >
+                            <div class="flex items-center gap-3">
+                                <i class="bi bi-people"></i>
+                                إدارة المستخدمين
+                            </div>
+                            <i class="bi bi-chevron-down text-xs transition-transform" data-kt-toggle-target="#users-menu"></i>
+                        </button>
+                        <ul id="users-menu" class="hidden mt-1 mr-6 space-y-1">
+                            <li>
+                                <a href="/users.html" class="block px-3 py-2 text-sm hover:bg-accent rounded-md">
+                                    <i class="bi bi-list-ul me-2"></i>
+                                    قائمة المستخدمين
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/profile.html" class="block px-3 py-2 text-sm hover:bg-accent rounded-md">
+                                    <i class="bi bi-person-circle me-2"></i>
+                                    البروفايل
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/profile-default.html" class="block px-3 py-2 text-sm hover:bg-accent rounded-md">
+                                    <i class="bi bi-person me-2"></i>
+                                    البروفايل الافتراضي
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/roles.html" class="block px-3 py-2 text-sm hover:bg-accent rounded-md">
+                                    <i class="bi bi-shield-lock me-2"></i>
+                                    الأدوار والصلاحيات
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+    
+                    <!-- المشاريع والمهام -->
+                    <li>
+                        <button
+                                class="w-full flex items-center justify-between px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-md"
+                                data-kt-toggle="#projects-menu"
+                                data-kt-toggle-class="hidden"
+                        >
+                            <div class="flex items-center gap-3">
+                                <i class="bi bi-kanban"></i>
+                                المشاريع والمهام
+                            </div>
+                            <i class="bi bi-chevron-down text-xs transition-transform" data-kt-toggle-target="#projects-menu"></i>
+                        </button>
+                        <ul id="projects-menu" class="hidden mt-1 mr-6 space-y-1">
+                            <li>
+                                <a href="/projects.html" class="block px-3 py-2 text-sm hover:bg-accent rounded-md">
+                                    <i class="bi bi-folder me-2"></i>
+                                    المشاريع
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/create-project.html" class="block px-3 py-2 text-sm hover:bg-accent rounded-md">
+                                    <i class="bi bi-plus-circle me-2"></i>
+                                    إنشاء مشروع
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/todo.html" class="block px-3 py-2 text-sm hover:bg-accent rounded-md">
+                                    <i class="bi bi-check-square me-2"></i>
+                                    المهام
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/notes.html" class="block px-3 py-2 text-sm hover:bg-accent rounded-md">
+                                    <i class="bi bi-journal-text me-2"></i>
+                                    الملاحظات
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/notes_view.html" class="block px-3 py-2 text-sm hover:bg-accent rounded-md">
+                                    <i class="bi bi-eye me-2"></i>
+                                    عرض الملاحظات
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+    
+                    <!-- التجارة الإلكترونية -->
+                    <li>
+                        <button
+                                class="w-full flex items-center justify-between px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-md"
+                                data-kt-toggle="#commerce-menu"
+                                data-kt-toggle-class="hidden"
+                        >
+                            <div class="flex items-center gap-3">
+                                <i class="bi bi-shop"></i>
+                                التجارة الإلكترونية
+                            </div>
+                            <i class="bi bi-chevron-down text-xs transition-transform" data-kt-toggle-target="#commerce-menu"></i>
+                        </button>
+                        <ul id="commerce-menu" class="hidden mt-1 mr-6 space-y-1">
+                            <li>
+                                <a href="/products.html" class="block px-3 py-2 text-sm hover:bg-accent rounded-md">
+                                    <i class="bi bi-box me-2"></i>
+                                    المنتجات
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/product-view.html" class="block px-3 py-2 text-sm hover:bg-accent rounded-md">
+                                    <i class="bi bi-eye me-2"></i>
+                                    عرض المنتج
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/orders.html" class="block px-3 py-2 text-sm hover:bg-accent rounded-md">
+                                    <i class="bi bi-cart me-2"></i>
+                                    الطلبات
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/invoice.html" class="block px-3 py-2 text-sm hover:bg-accent rounded-md">
+                                    <i class="bi bi-receipt me-2"></i>
+                                    الفواتير
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+    
+                    <!-- إدارة النماذج -->
+                    <li>
+                        <button
+                                class="w-full flex items-center justify-between px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-md"
+                                data-kt-toggle="#entities-menu"
+                                data-kt-toggle-class="hidden"
+                        >
+                            <div class="flex items-center gap-3">
+                                <i class="bi bi-collection"></i>
+                                إدارة النماذج
+                            </div>
+                            <i class="bi bi-chevron-down text-xs transition-transform" data-kt-toggle-target="#entities-menu"></i>
+                        </button>
+                        <ul id="entities-menu" class="hidden mt-1 mr-6 space-y-1">
+                            <li>
+                                <a href="/entity-list.html" class="block px-3 py-2 text-sm hover:bg-accent rounded-md">
+                                    <i class="bi bi-list me-2"></i>
+                                    قائمة النماذج
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/entity-form.html" class="block px-3 py-2 text-sm hover:bg-accent rounded-md">
+                                    <i class="bi bi-form me-2"></i>
+                                    نموذج جديد
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/entity-view.html" class="block px-3 py-2 text-sm hover:bg-accent rounded-md">
+                                    <i class="bi bi-eye me-2"></i>
+                                    عرض النموذج
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+    
+                    <!-- المصادقة -->
+                    <li>
+                        <button
+                                class="w-full flex items-center justify-between px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-md"
+                                data-kt-toggle="#auth-menu"
+                                data-kt-toggle-class="hidden"
+                        >
+                            <div class="flex items-center gap-3">
+                                <i class="bi bi-key"></i>
+                                المصادقة
+                            </div>
+                            <i class="bi bi-chevron-down text-xs transition-transform" data-kt-toggle-target="#auth-menu"></i>
+                        </button>
+                        <ul id="auth-menu" class="hidden mt-1 mr-6 space-y-1">
+                            <li>
+                                <a href="/login.html" class="block px-3 py-2 text-sm hover:bg-accent rounded-md">
+                                    <i class="bi bi-box-arrow-in-right me-2"></i>
+                                    تسجيل الدخول
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/register.html" class="block px-3 py-2 text-sm hover:bg-accent rounded-md">
+                                    <i class="bi bi-person-plus me-2"></i>
+                                    إنشاء حساب
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+    
+                    <!-- صفحات الأخطاء -->
+                    <li>
+                        <button
+                                class="w-full flex items-center justify-between px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-md"
+                                data-kt-toggle="#errors-menu"
+                                data-kt-toggle-class="hidden"
+                        >
+                            <div class="flex items-center gap-3">
+                                <i class="bi bi-exclamation-triangle"></i>
+                                صفحات الأخطاء
+                            </div>
+                            <i class="bi bi-chevron-down text-xs transition-transform" data-kt-toggle-target="#errors-menu"></i>
+                        </button>
+                        <ul id="errors-menu" class="hidden mt-1 mr-6 space-y-1">
+                            <li>
+                                <a href="/errors/error-404.html" class="block px-3 py-2 text-sm hover:bg-accent rounded-md">
+                                    <i class="bi bi-file-x me-2"></i>
+                                    صفحة غير موجودة (404)
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/errors/error-500.html" class="block px-3 py-2 text-sm hover:bg-accent rounded-md">
+                                    <i class="bi bi-server me-2"></i>
+                                    خطأ في الخادم (500)
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/errors/maintenance.html" class="block px-3 py-2 text-sm hover:bg-accent rounded-md">
+                                    <i class="bi bi-tools me-2"></i>
+                                    صيانة
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/errors/empty-state.html" class="block px-3 py-2 text-sm hover:bg-accent rounded-md">
+                                    <i class="bi bi-inbox me-2"></i>
+                                    حالة فارغة
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+    
+            <div>
+                <h2 class="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3">الإعدادات</h2>
+                <ul class="space-y-1">
+                    <li>
+                        <a href="/settings.html" class="flex items-center gap-3 px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-md">
+                            <i class="bi bi-gear"></i>
+                            الإعدادات العامة
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/support.html" class="flex items-center gap-3 px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-md">
+                            <i class="bi bi-question-circle"></i>
+                            المساعدة
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </aside>     <main class="flex-1 p-6 ">
+
+         <!-- المحتوى الرئيسي للصفحة -->
+
+         
+         
+         <section id="block-page-header" class="mb-8">
+           <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+             <div>
+               <h1 class="text-2xl font-bold text-foreground">المنتجات</h1>
+               <p class="text-muted-foreground">إدارة منتجات المتجر، إضافة وتعديل وتفعيل/إيقاف.</p>
+             </div>
+         
+             <div class="flex items-center gap-2">
+               <button class="kt-btn kt-btn-ghost kt-btn-sm" data-kt-theme-mode="light" title="وضع فاتح">
+                 <i class="bi bi-sun-fill text-lg"></i>
+               </button>
+               <button class="kt-btn kt-btn-ghost kt-btn-sm hidden" data-kt-theme-mode="dark" title="وضع داكن">
+                 <i class="bi bi-moon-fill text-lg"></i>
+               </button>
+         
+               <a href="/product-new.html" class="kt-btn kt-btn-primary">
+                 <i class="bi bi-plus-lg"></i>
+                 <span>منتج جديد</span>
+               </a>
+             </div>
+           </div>
+         </section>
+         
+         <section id="block-stats" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 mb-8">
+           <div class="bg-card border border-border rounded-xl p-4">
+             <div class="flex items-center justify-between">
+               <div>
+                 <p class="text-sm text-muted-foreground">إجمالي المنتجات</p>
+                 <h3 class="text-2xl font-semibold mt-1">1,284</h3>
+               </div>
+               <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                 <i class="bi bi-box text-primary"></i>
+               </div>
+             </div>
+           </div>
+         
+           <div class="bg-card border border-border rounded-xl p-4">
+             <div class="flex items-center justify-between">
+               <div>
+                 <p class="text-sm text-muted-foreground">المخزون المنخفض</p>
+                 <h3 class="text-2xl font-semibold mt-1">42</h3>
+               </div>
+               <div class="w-10 h-10 rounded-lg bg-warning/10 flex items-center justify-center">
+                 <i class="bi bi-exclamation-triangle text-warning"></i>
+               </div>
+             </div>
+           </div>
+         
+           <div class="bg-card border border-border rounded-xl p-4">
+             <div class="flex items-center justify-between">
+               <div>
+                 <p class="text-sm text-muted-foreground">نشِطة</p>
+                 <h3 class="text-2xl font-semibold mt-1">1,032</h3>
+               </div>
+               <div class="w-10 h-10 rounded-lg bg-success/10 flex items-center justify-center">
+                 <i class="bi bi-check2-circle text-success"></i>
+               </div>
+             </div>
+           </div>
+         
+           <div class="bg-card border border-border rounded-xl p-4">
+             <div class="flex items-center justify-between">
+               <div>
+                 <p class="text-sm text-muted-foreground">بانتظار المراجعة</p>
+                 <h3 class="text-2xl font-semibold mt-1">17</h3>
+               </div>
+               <div class="w-10 h-10 rounded-lg bg-muted flex items-center justify-center">
+                 <i class="bi bi-hourglass-split text-muted-foreground"></i>
+               </div>
+             </div>
+           </div>
+         </section>
+         
+         <section id="block-toolbar" class="bg-card border border-border rounded-xl p-4 mb-6">
+           <div class="flex flex-col md:flex-row md:items-center gap-3">
+             <div class="relative flex-1 min-w-[240px]">
+               <i class="bi bi-search absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground"></i>
+               <input type="text" placeholder="ابحث باسم المنتج أو SKU"
+                      class="w-full h-10 pr-10 pl-3 bg-background border border-input rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-ring" />
+             </div>
+         
+             <div class="flex items-center gap-2">
+               <div class="relative">
+                 <button class="kt-btn kt-btn-outline kt-btn-sm" data-kt-toggle="#filter-menu" data-kt-toggle-class="hidden">
+                   <i class="bi bi-funnel"></i>
+                   فلاتر
+                 </button>
+                 <div id="filter-menu" class="hidden absolute left-0 mt-2 w-64 bg-card border border-border rounded-md shadow-lg p-3 z-40">
+                   <div class="space-y-3">
+                     <label class="flex items-center justify-between text-sm">
+                       التصنيف
+                       <select class="bg-background border border-input rounded-md h-9 px-2">
+                         <option>الكل</option>
+                         <option>إلكترونيات</option>
+                         <option>ملابس</option>
+                         <option>أثاث</option>
+                       </select>
+                     </label>
+                     <label class="flex items-center justify-between text-sm">
+                       الحالة
+                       <select class="bg-background border border-input rounded-md h-9 px-2">
+                         <option>الكل</option>
+                         <option>نشِط</option>
+                         <option>موقّف</option>
+                         <option>بانتظار</option>
+                       </select>
+                     </label>
+                     <div class="flex items-center justify-end gap-2 pt-1">
+                       <button class="kt-btn kt-btn-ghost kt-btn-sm">مسح</button>
+                       <button class="kt-btn kt-btn-primary kt-btn-sm">تطبيق</button>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+         
+               <div class="hidden sm:block w-px h-6 bg-border"></div>
+         
+               <div class="flex items-center gap-2">
+                 <button class="kt-btn kt-btn-outline kt-btn-sm" title="تصدير CSV">
+                   <i class="bi bi-download"></i>
+                   تصدير
+                 </button>
+                 <button class="kt-btn kt-btn-outline kt-btn-sm" title="استيراد">
+                   <i class="bi bi-upload"></i>
+                   استيراد
+                 </button>
+               </div>
+             </div>
+           </div>
+         </section>
+         
+         <section id="block-table" class="bg-card border border-border rounded-xl overflow-hidden">
+           <div class="p-4 border-b border-border flex items-center justify-between">
+             <div class="flex items-center gap-2">
+               <input type="checkbox" class="h-4 w-4 rounded border-input" />
+               <span class="text-sm text-muted-foreground">تحديد الكل</span>
+             </div>
+             <div class="flex items-center gap-2">
+               <button class="kt-btn kt-btn-ghost kt-btn-sm"><i class="bi bi-archive"></i> أرشفة</button>
+               <button class="kt-btn kt-btn-ghost kt-btn-sm text-destructive"><i class="bi bi-trash"></i> حذف</button>
+             </div>
+           </div>
+         
+           <div class="overflow-x-auto">
+             <table class="w-full text-sm rtl:text-right">
+               <thead class="bg-muted/50 text-muted-foreground">
+                 <tr class="[&>th]:py-3 [&>th]:px-4">
+                   <th></th>
+                   <th>المنتج</th>
+                   <th>التصنيف</th>
+                   <th>السعر</th>
+                   <th>المخزون</th>
+                   <th>الحالة</th>
+                   <th class="text-left">إجراءات</th>
+                 </tr>
+               </thead>
+               <tbody class="[&>tr]:border-b [&>tr]:border-border">
+                 <tr class="[&>td]:py-3 [&>td]:px-4 hover:bg-accent/40">
+                   <td><input type="checkbox" class="h-4 w-4 rounded border-input" /></td>
+                   <td class="min-w-[220px]">
+                     <div class="flex items-center gap-3">
+                       <div class="w-12 h-12 rounded-lg bg-muted overflow-hidden">
+                         <img src="https://picsum.photos/48/48" alt="product" class="w-full h-full object-cover">
+                       </div>
+                       <div>
+                         <a href="/product-123.html" class="font-medium hover:underline">سماعات لاسلكية Pro</a>
+                         <div class="text-xs text-muted-foreground">SKU: WHS-9932</div>
+                       </div>
+                     </div>
+                   </td>
+                   <td>إلكترونيات</td>
+                   <td>1,299 ر.س</td>
+                   <td>
+                     <span class="inline-flex items-center gap-1">
+                       <i class="bi bi-circle-fill text-success text-[6px]"></i> 230
+                     </span>
+                   </td>
+                   <td>
+                     <span class="px-2 py-1 rounded-md text-xs bg-success/10 text-success">نشِط</span>
+                   </td>
+                   <td class="text-left">
+                     <div class="flex items-center gap-2 justify-end">
+                       <a href="/product-123.html" class="kt-btn kt-btn-ghost kt-btn-xs"><i class="bi bi-eye"></i> عرض</a>
+                       <a href="/product-123-edit.html" class="kt-btn kt-btn-ghost kt-btn-xs"><i class="bi bi-pencil-square"></i> تعديل</a>
+                       <button class="kt-btn kt-btn-ghost kt-btn-xs text-destructive"><i class="bi bi-trash"></i> حذف</button>
+                     </div>
+                   </td>
+                 </tr>
+         
+                 <tr class="[&>td]:py-3 [&>td]:px-4 hover:bg-accent/40">
+                   <td><input type="checkbox" class="h-4 w-4 rounded border-input" /></td>
+                   <td class="min-w-[220px]">
+                     <div class="flex items-center gap-3">
+                       <div class="w-12 h-12 rounded-lg bg-muted overflow-hidden">
+                         <img src="https://picsum.photos/48/48" alt="product" class="w-full h-full object-cover">
+                       </div>
+                       <div>
+                         <a href="/product-124.html" class="font-medium hover:underline">قميص قطن رجالي</a>
+                         <div class="text-xs text-muted-foreground">SKU: SH-1842</div>
+                       </div>
+                     </div>
+                   </td>
+                   <td>ملابس</td>
+                   <td>189 ر.س</td>
+                   <td>
+                     <span class="inline-flex items-center gap-1">
+                       <i class="bi bi-circle-fill text-warning text-[6px]"></i> 12
+                     </span>
+                   </td>
+                   <td>
+                     <span class="px-2 py-1 rounded-md text-xs bg-warning/10 text-warning">بانتظار</span>
+                   </td>
+                   <td class="text-left">
+                     <div class="flex items-center gap-2 justify-end">
+                       <a href="/product-124.html" class="kt-btn kt-btn-ghost kt-btn-xs"><i class="bi bi-eye"></i> عرض</a>
+                       <a href="/product-124-edit.html" class="kt-btn kt-btn-ghost kt-btn-xs"><i class="bi bi-pencil-square"></i> تعديل</a>
+                       <button class="kt-btn kt-btn-ghost kt-btn-xs text-destructive"><i class="bi bi-slash-circle"></i> إيقاف</button>
+                     </div>
+                   </td>
+                 </tr>
+         
+               </tbody>
+             </table>
+           </div>
+         
+           <div class="p-4 flex items-center justify-between text-sm">
+             <div class="text-muted-foreground">إظهار 1–10 من 1284</div>
+             <div class="flex items-center gap-1">
+               <button class="kt-btn kt-btn-ghost kt-btn-sm"><i class="bi bi-chevron-right"></i></button>
+               <button class="kt-btn kt-btn-ghost kt-btn-sm kt-btn-active">1</button>
+               <button class="kt-btn kt-btn-ghost kt-btn-sm">2</button>
+               <button class="kt-btn kt-btn-ghost kt-btn-sm">3</button>
+               <button class="kt-btn kt-btn-ghost kt-btn-sm"><i class="bi bi-chevron-left"></i></button>
+             </div>
+           </div>
+         </section>
+         
+         <section id="block-grid" class="mt-6">
+           <div class="flex items-center justify-between mb-3">
+             <h2 class="text-base font-semibold">شبكة المنتجات</h2>
+             <button class="kt-btn kt-btn-ghost kt-btn-sm">
+               <i class="bi bi-grid-3x3-gap"></i>
+               تبديل العرض
+             </button>
+           </div>
+         
+           <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
+             <article class="bg-card border border-border rounded-xl overflow-hidden">
+               <div class="aspect-[4/3] bg-muted">
+                 <img src="https://placehold.co/600x400/EEE/31343C?text=Product+Img" alt="" class="w-full h-full object-cover">
+               </div>
+               <div class="p-4 space-y-2">
+                 <a href="#" class="font-medium hover:underline">طاولة قهوة خشب طبيعي</a>
+                 <div class="text-sm text-muted-foreground">أثاث • SKU: TB-221</div>
+                 <div class="flex items-center justify-between">
+                   <span class="font-semibold">799 ر.س</span>
+                   <span class="px-2 py-1 rounded-md text-xs bg-success/10 text-success">متوفر</span>
+                 </div>
+                 <div class="flex items-center gap-2 pt-1">
+                   <button class="kt-btn kt-btn-outline kt-btn-xs"><i class="bi bi-pencil-square"></i> تعديل</button>
+                   <button class="kt-btn kt-btn-primary kt-btn-xs"><i class="bi bi-cart-plus"></i> إضافة</button>
+                 </div>
+               </div>
+             </article>
+         
+             <article class="bg-card border border-border rounded-xl overflow-hidden">
+               <div class="aspect-[4/3] bg-muted">
+                 <img src="https://placehold.co/300x200?text=Image" alt="" class="w-full h-full object-cover">
+               </div>
+               <div class="p-4 space-y-2">
+                 <a href="#" class="font-medium hover:underline">حذاء رياضي Air Sprint</a>
+                 <div class="text-sm text-muted-foreground">ملابس • SKU: RS-940</div>
+                 <div class="flex items-center justify-between">
+                   <span class="font-semibold">349 ر.س</span>
+                   <span class="px-2 py-1 rounded-md text-xs bg-warning/10 text-warning">محدود</span>
+                 </div>
+                 <div class="flex items-center gap-2 pt-1">
+                   <button class="kt-btn kt-btn-outline kt-btn-xs"><i class="bi bi-pencil-square"></i> تعديل</button>
+                   <button class="kt-btn kt-btn-primary kt-btn-xs"><i class="bi bi-cart-plus"></i> إضافة</button>
+                 </div>
+               </div>
+             </article>
+         
+           </div>
+         </section>
+         
+         <section id="block-drawer" class="hidden">
+           <aside id="product-drawer" class="fixed top-0 bottom-0 left-0 w-[380px] bg-card border-l border-border shadow-xl translate-x-[-100%]"
+                  data-kt-toggle-class="translate-x-0">
+             <div class="p-4 border-b border-border flex items-center justify-between">
+               <h3 class="font-semibold">تفاصيل المنتج</h3>
+               <button class="kt-btn kt-btn-ghost kt-btn-sm" data-kt-toggle="#product-drawer" data-kt-toggle-class="translate-x-[-100%]">
+                 <i class="bi bi-x-lg"></i>
+               </button>
+             </div>
+             <div class="p-4 space-y-3">
+               <div class="w-full aspect-[4/3] bg-muted rounded-lg"></div>
+               <div class="space-y-1">
+                 <div class="text-sm text-muted-foreground">الاسم</div>
+                 <div class="font-medium">سماعات لاسلكية Pro</div>
+               </div>
+               <div class="space-y-1">
+                 <div class="text-sm text-muted-foreground">السعر</div>
+                 <div class="font-medium">1,299 ر.س</div>
+               </div>
+               <div class="flex items-center gap-2">
+                 <button class="kt-btn kt-btn-primary kt-btn-sm"><i class="bi bi-cart-plus"></i> إضافة للعربة</button>
+                 <button class="kt-btn kt-btn-outline kt-btn-sm"><i class="bi bi-pencil-square"></i> تعديل</button>
+               </div>
+             </div>
+           </aside>
+         </section>
+         
+
+      </main>
+  </div>
+
+  <footer class="bg-card border-t border-border mt-auto">
+      <div class="px-6 py-4">
+          <div class="flex items-center justify-between text-sm text-muted-foreground">
+              <div>
+                  <strong>حقوق الطبع © 2024 .</strong>
+                  جميع الحقوق محفوظة.
+              </div>
+              <div class="hidden sm:block">
+                  الإصدار 1.0.0
+              </div>
+          </div>
+      </div>
+  </footer>
+  <script src="./js/ktui.min.js"></script>
+  <script>window.KTUI && KTUI.init();</script>
+  <script src="./assets/theme-toggle.js"></script>
+
+</body>
+</html>
