@@ -1,8 +1,6 @@
 # AwesomeTheme Admin Dashboard
 
-A professional admin dashboard built using **TailwindCSS v4**, **KTUI**,
-and **Handlebars Templates**.
-
+A professional admin dashboard built using **TailwindCSS v4**, **KTUI**
 ## 🚀 Overview
 
 This project is a comprehensive management system supporting both
@@ -33,3 +31,9 @@ dark and light mode support.
 
 -   **Frontend**: TailwindCSS v4 + KTUI Components\
 -   **Icons**: Bootstrap Icons
+
+
+## 👨‍💻 Author
+
+This project was designed and developed by **Mostafa Anwar**.\
+🌐 Website: <https://mustafaeida.com/>
